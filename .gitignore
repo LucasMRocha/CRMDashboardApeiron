@@ -1,0 +1,6 @@
+﻿@.claude/
+_backup/
+_output/
+*.xlsx
+*.html
+*.log
