@@ -533,9 +533,9 @@ def export_leads_js(workbook: Path, sheet: str, header_row: int, data_start: int
 
 def create_backup(workbook: Path, keep: int):
     ts = dt.datetime.now().strftime("%Y%m%d_%H%M%S")
-    backup = workbook.parent / f"Dashboard_Comercial_Brasil_backup_{ts}{workbook.suffix}"
+    backup = workbook.parent / f"Dashboard_Opportunities_Brasil_backup_{ts}{workbook.suffix}"
     shutil.copy2(workbook, backup)
-    all_bak = sorted(workbook.parent.glob("Dashboard_Comercial_Brasil_backup_*.xlsx"), key=lambda p: p.stat().st_mtime, reverse=True)
+    all_bak = sorted(workbook.parent.glob("Dashboard_Opportunities_Brasil_backup_*.xlsx"), key=lambda p: p.stat().st_mtime, reverse=True)
     for old in all_bak[max(1, keep):]:
         try:
             old.unlink()
@@ -558,9 +558,9 @@ def parse_modules(raw: str):
 
 def build_parser() -> argparse.ArgumentParser:
     root = Path(__file__).resolve().parents[1]
-    p = argparse.ArgumentParser(description="Import Zoho CRM into Dashboard Comercial Brasil DB.")
-    p.add_argument("--workbook", default=str(root / "Dashboard Comercial Brasil.xlsx"))
-    p.add_argument("--sheet", default="Comercial Brasil")
+    p = argparse.ArgumentParser(description="Import Zoho CRM into Dashboard Opportunities Brasil DB.")
+    p.add_argument("--workbook", default=str(root / "Dashboard Opportunities Brasil.xlsx"))
+    p.add_argument("--sheet", default="Opportunities Brasil")
     p.add_argument("--header-row", type=int, default=2)
     p.add_argument("--data-start-row", type=int, default=3)
     p.add_argument("--leads-js", default=str(root / "src" / "dashboard" / "data" / "leads.js"))
@@ -659,3 +659,4 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"ERROR: {e}")
         raise SystemExit(1)
+

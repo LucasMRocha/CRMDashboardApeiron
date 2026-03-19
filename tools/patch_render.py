@@ -1,10 +1,10 @@
-import sys, re
+﻿import sys, re
 sys.stdout.reconfigure(encoding='utf-8')
 
-with open('APEIRON BRASIL - Commercial Leads Hub.html','r',encoding='utf-8') as f:
+with open('APEIRON BRASIL - Opportunities Leads Hub.html','r',encoding='utf-8') as f:
     html = f.read()
 
-# ── Fix renderHeaders inline JS (oninput single quotes) ──────────────────────
+# â”€â”€ Fix renderHeaders inline JS (oninput single quotes) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # The fRow.innerHTML line has broken escaping - replace the whole renderHeaders body
 OLD_RENDER_HEADERS = """function renderHeaders() {
   const visOrder = colOrder.filter(c => colVis[c] !== false);
@@ -74,10 +74,10 @@ else:
     idx = html.find('function renderHeaders')
     print(repr(html[idx:idx+200]))
 
-# ── Fix setColFilter to use field key directly (since oninput now uses data-filtercol) ──
+# â”€â”€ Fix setColFilter to use field key directly (since oninput now uses data-filtercol) â”€â”€
 # setColFilter already works with field key, no change needed
 
-# ── Replace renderFollowupTable ───────────────────────────────────────────────
+# â”€â”€ Replace renderFollowupTable â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 old_rft_start = 'function renderFollowupTable(open) {'
 old_rft_end   = '  applyColVisibility(\'followup\');\n}'
 
@@ -104,7 +104,7 @@ NEW_RFT = r"""function renderFollowupTable(open) {
 html = html[:idx_s] + NEW_RFT + html[idx_e:]
 print('renderFollowupTable replaced OK')
 
-# ── Replace renderClosedTable ─────────────────────────────────────────────────
+# â”€â”€ Replace renderClosedTable â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 old_rct_start = 'function renderClosedTable(won, lost) {'
 old_rct_end   = '  applyColVisibility(\'closed\');\n}'
 
@@ -129,11 +129,11 @@ NEW_RCT = r"""function renderClosedTable(won, lost) {
 html = html[:idx_s2] + NEW_RCT + html[idx_e2:]
 print('renderClosedTable replaced OK')
 
-# ── Add renderCell function (insert before renderFollowupTable) ───────────────
-RENDER_CELL = r"""// ── CELL RENDERER ─────────────────────────────────────────────────────────────
+# â”€â”€ Add renderCell function (insert before renderFollowupTable) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+RENDER_CELL = r"""// â”€â”€ CELL RENDERER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function renderCell(r, col) {
   const def = COLUMN_DEFS.find(d=>d.col===col);
-  if (!def) return '<td>—</td>';
+  if (!def) return '<td>â€”</td>';
   const g = 'color:var(--gray-mid)';
   switch(col) {
     case 'ID':
@@ -141,7 +141,7 @@ function renderCell(r, col) {
     case 'Company':
       return `<td data-col="Company"><strong>${r.Company||''}</strong></td>`;
     case 'Stage':
-      return `<td data-col="Stage"><span class="badge badge-stage">${r.Funnel_Stage||'—'}</span></td>`;
+      return `<td data-col="Stage"><span class="badge badge-stage">${r.Funnel_Stage||'â€”'}</span></td>`;
     case 'EstValue':
       return `<td data-col="EstValue">${fmtBRL(r.Estimated_Value)}</td>`;
     case 'Forecast':
@@ -154,19 +154,19 @@ function renderCell(r, col) {
       return `<td data-col="NextAction" class="${cls}">${fmtDate(r.Date_Next_Action)}</td>`;
     }
     case 'Notes':
-      return `<td data-col="Notes" style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${(r.OBS||'').replace(/"/g,'&quot;')}">${r.OBS||'—'}</td>`;
+      return `<td data-col="Notes" style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${(r.OBS||'').replace(/"/g,'&quot;')}">${r.OBS||'â€”'}</td>`;
     case 'Urgency':
       return `<td data-col="Urgency">${urgBadge(r.Urgency)}</td>`;
     case 'LostReason':
-      return `<td data-col="LostReason" style="color:var(--red)">${r.Reason_Lost||'—'}</td>`;
+      return `<td data-col="LostReason" style="color:var(--red)">${r.Reason_Lost||'â€”'}</td>`;
     case 'Description':
-      return `<td data-col="Description" style="max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;${g}" title="${(r.Description||'').replace(/"/g,'&quot;')}">${r.Description||'—'}</td>`;
+      return `<td data-col="Description" style="max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;${g}" title="${(r.Description||'').replace(/"/g,'&quot;')}">${r.Description||'â€”'}</td>`;
     case 'Created':    return `<td data-col="Created" style="${g}">${fmtDate(r.Date_Creation)}</td>`;
     case 'StageSince': return `<td data-col="StageSince" style="${g}">${fmtDate(r.Date_Actual_Stage)}</td>`;
     case 'LastContact':return `<td data-col="LastContact" style="${g}">${fmtDate(r.Date_Last_Contact)}</td>`;
     default: {
       const v = r[def.field];
-      return `<td data-col="${col}" style="${g}">${(v!==null&&v!==undefined&&v!=='')?String(v):'—'}</td>`;
+      return `<td data-col="${col}" style="${g}">${(v!==null&&v!==undefined&&v!=='')?String(v):'â€”'}</td>`;
     }
   }
 }
@@ -177,7 +177,7 @@ idx_rft = html.index('function renderFollowupTable(open) {')
 html = html[:idx_rft] + RENDER_CELL + html[idx_rft:]
 print('renderCell added OK')
 
-# ── Unify toggleColFilters (shared for both tables) ───────────────────────────
+# â”€â”€ Unify toggleColFilters (shared for both tables) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 OLD_TCF = """function toggleColFilters() {
   colFiltersVisible = !colFiltersVisible;
   document.getElementById('col-filter-row').style.display = colFiltersVisible ? '' : 'none';
@@ -214,6 +214,7 @@ else:
     idx = html.find('function toggleColFilters')
     print(repr(html[idx:idx+300]))
 
-with open('APEIRON BRASIL - Commercial Leads Hub.html','w',encoding='utf-8') as f:
+with open('APEIRON BRASIL - Opportunities Leads Hub.html','w',encoding='utf-8') as f:
     f.write(html)
 print('All render patches done')
+

@@ -1,7 +1,7 @@
-import sys, re
+﻿import sys, re
 sys.stdout.reconfigure(encoding='utf-8')
 
-with open('APEIRON BRASIL - Commercial Leads Hub.html','r',encoding='utf-8') as f:
+with open('APEIRON BRASIL - Opportunities Leads Hub.html','r',encoding='utf-8') as f:
     html = f.read()
 
 old_start = 'const COL_VIS_DEFS = {'
@@ -10,7 +10,7 @@ old_end   = "document.addEventListener('click', () => {\n  document.querySelecto
 idx_start = html.index(old_start)
 idx_end   = html.index(old_end) + len(old_end)
 
-NEW = """// ── COLUMN DEFINITIONS (database order) ─────────────────────────────────────
+NEW = """// â”€â”€ COLUMN DEFINITIONS (database order) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const COLUMN_DEFS = [
   {col:'ID',          field:'ID_Opportunity',             label:'ID',              defVis:true },
   {col:'Description', field:'Description',                label:'Description',     defVis:false},
@@ -50,7 +50,7 @@ const COLUMN_DEFS = [
 let colOrder = COLUMN_DEFS.map(d => d.col);
 const colVis  = Object.fromEntries(COLUMN_DEFS.map(d => [d.col, d.defVis]));
 
-// ── RENDER HEADERS ─────────────────────────────────────────────────────────────
+// â”€â”€ RENDER HEADERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function renderHeaders() {
   const visOrder = colOrder.filter(c => colVis[c] !== false);
   ['followup','closed'].forEach(tid => {
@@ -101,7 +101,7 @@ function initDrag(th, col) {
   });
 }
 
-// ── SHARED COLS PANEL ──────────────────────────────────────────────────────────
+// â”€â”€ SHARED COLS PANEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function initColVisPanel() {
   const panel = document.getElementById('col-vis-panel');
   if (!panel || panel.dataset.built) return;
@@ -150,6 +150,7 @@ document.addEventListener('click', ()=>{
 
 html = html[:idx_start] + NEW + html[idx_end:]
 
-with open('APEIRON BRASIL - Commercial Leads Hub.html','w',encoding='utf-8') as f:
+with open('APEIRON BRASIL - Opportunities Leads Hub.html','w',encoding='utf-8') as f:
     f.write(html)
 print('Column system replaced OK')
+

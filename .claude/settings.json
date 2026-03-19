@@ -1,4 +1,4 @@
-{
+﻿{
   "permissions": {
     "allow": [
       "Bash(powershell -Command \":*)",
@@ -7,13 +7,14 @@
       "Bash(powershell -Command \"[System.Environment]::SetEnvironmentVariable\\(''OLLAMA_MODELS'', ''C:\\\\AI_WORKSPACE\\\\01_MODELS\\\\ollama'', ''User''\\); Write-Host ''OLLAMA_MODELS definida para o usuario''\")",
       "Bash(powershell -Command \"Start-Process ''C:\\\\AI_WORKSPACE\\\\00_ADMIN\\\\setup_notes\\\\OllamaSetup.exe'' -ArgumentList ''/SILENT'' -Wait; Write-Host ''Instalacao concluida''\")",
       "Bash(powershell -File \"C:\\\\AI_WORKSPACE\\\\00_ADMIN\\\\setup_notes\\\\install_ollama.ps1\")",
-      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Commercial-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bvfwuzioq.output'' | Select-Object -Last 20\")",
-      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Commercial-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bvfwuzioq.output'' | Select-Object -First 30\")",
+      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Opportunities-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bvfwuzioq.output'' | Select-Object -Last 20\")",
+      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Opportunities-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bvfwuzioq.output'' | Select-Object -First 30\")",
       "Bash(powershell -Command \"winget install --id Gyan.FFmpeg -e --silent 2>&1\")",
-      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Commercial-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bdb0iwvcm.output'' | Select-Object -Last 25\")"
+      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Opportunities-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bdb0iwvcm.output'' | Select-Object -Last 25\")"
     ],
     "additionalDirectories": [
       "C:\\AI_WORKSPACE"
     ]
   }
 }
+

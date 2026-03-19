@@ -1,7 +1,7 @@
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
-$dbName = "Dashboard Comercial Brasil.xlsx"
+$dbName = "Dashboard Opportunities Brasil.xlsx"
 $dbPath = Join-Path $root $dbName
 
 if (!(Test-Path -LiteralPath $dbPath)) {
@@ -9,11 +9,11 @@ if (!(Test-Path -LiteralPath $dbPath)) {
 }
 
 $ts = Get-Date -Format "yyyyMMdd_HHmmss"
-$backupPath = Join-Path $root ("Dashboard_Comercial_Brasil_backup_{0}.xlsx" -f $ts)
+$backupPath = Join-Path $root ("Dashboard_Opportunities_Brasil_backup_{0}.xlsx" -f $ts)
 
 Copy-Item -LiteralPath $dbPath -Destination $backupPath -Force
 
-$allBackups = Get-ChildItem -LiteralPath $root -Filter "Dashboard_Comercial_Brasil_backup_*.xlsx" |
+$allBackups = Get-ChildItem -LiteralPath $root -Filter "Dashboard_Opportunities_Brasil_backup_*.xlsx" |
   Sort-Object LastWriteTime -Descending
 
 $toDelete = $allBackups | Select-Object -Skip 2
@@ -23,7 +23,8 @@ foreach ($f in $toDelete) {
 }
 
 Write-Output ("Created backup: " + [IO.Path]::GetFileName($backupPath))
-Get-ChildItem -LiteralPath $root -Filter "Dashboard_Comercial_Brasil_backup_*.xlsx" |
+Get-ChildItem -LiteralPath $root -Filter "Dashboard_Opportunities_Brasil_backup_*.xlsx" |
   Sort-Object LastWriteTime -Descending |
   Select-Object Name, LastWriteTime |
   Format-Table -AutoSize
+

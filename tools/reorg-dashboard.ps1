@@ -1,7 +1,7 @@
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 
-$root = "C:\Users\LucasMartinsRocha\OneDrive - Apeiron Pte Ltd\CRM\Commercial Dashboard"
-$sourceHtml = Join-Path $root "APEIRON BRASIL - Commercial Leads Hub.html"
+$root = "C:\Users\LucasMartinsRocha\OneDrive - Apeiron Pte Ltd\CRM\\Opportunities"
+$sourceHtml = Join-Path $root "APEIRON BRASIL - Opportunities Leads Hub.html"
 if (!(Test-Path $sourceHtml)) {
   throw "Source HTML not found: $sourceHtml"
 }
@@ -78,7 +78,7 @@ if (Test-Path $logoSrc) {
 }
 
 # Keep monolithic backup in legacy
-Copy-Item -Path $sourceHtml -Destination (Join-Path $legacyDir "Pipeline Comercial Brasil - Follow-up Review.monolithic.backup.html") -Force
+Copy-Item -Path $sourceHtml -Destination (Join-Path $legacyDir "Pipeline Opportunities Brasil - Follow-up Review.monolithic.backup.html") -Force
 
 # Launcher for dev dashboard
 $launcher = @'
@@ -161,3 +161,4 @@ pause
 Set-Content -Path (Join-Path $root "BUILD_SINGLE_FILE.bat") -Value $buildBat -Encoding ASCII
 
 Write-Host "Reorganization complete."
+

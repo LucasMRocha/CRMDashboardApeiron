@@ -8,16 +8,17 @@
       "Bash(python patch_render.py)",
       "Bash(powershell -Command \"Get-ChildItem ''C:\\\\Users\\\\LucasMartinsRocha\\\\Downloads\\\\ocr_local_claude_code_pack.zip'' | Select-Object Name, Length\")",
       "Bash(powershell -Command \"Expand-Archive -Path ''C:\\\\Users\\\\LucasMartinsRocha\\\\Downloads\\\\ocr_local_claude_code_pack.zip'' -DestinationPath ''C:\\\\AI_WORKSPACE\\\\05_AUTOMATIONS\\\\python\\\\ocr_api'' -Force; Get-ChildItem ''C:\\\\AI_WORKSPACE\\\\05_AUTOMATIONS\\\\python\\\\ocr_api'' -Recurse | Select-Object FullName\")",
-      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Commercial-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bmi3pyufw.output'' | Select-Object -Last 5\")",
+      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Opportunities-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bmi3pyufw.output'' | Select-Object -Last 5\")",
       "Bash(python \"c:\\\\Users\\\\LucasMartinsRocha\\\\OneDrive - Apeiron Pte Ltd\\\\Prospecting\\\\Development\\\\tools\\\\refresh_dashboard_from_db.py\")",
-      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Commercial-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bwliotame.output'' | Select-Object -Last 15\")",
-      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Commercial-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\brxg7363y.output'' | Select-Object -Last 10\")",
-      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Commercial-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bm46ap5uy.output'' | Select-Object -Last 5\")",
+      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Opportunities-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bwliotame.output'' | Select-Object -Last 15\")",
+      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Opportunities-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\brxg7363y.output'' | Select-Object -Last 10\")",
+      "Bash(powershell -Command \"Get-Content ''C:\\\\Users\\\\LUCASM~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Opportunities-Dashboard\\\\78ac8a03-7cab-4618-b987-3f99be73d902\\\\tasks\\\\bm46ap5uy.output'' | Select-Object -Last 5\")",
       "Bash(powershell -Command \"Get-Process python -ErrorAction SilentlyContinue | Stop-Process -Force; Write-Host ''Processos Python encerrados''\")",
       "Bash(powershell -Command \"Get-Process | Where-Object {$_Name -in @\\(''python'',''uvicorn'',''ollama''\\)} | Select-Object Name, Id, WorkingSet64 | Sort-Object WorkingSet64 -Descending\")",
       "Bash(powershell -Command \"Get-Process python,uvicorn,ollama -ErrorAction SilentlyContinue | Select-Object Name,Id,@{N=''MB'';E={[int]\\($_WorkingSet64/1MB\\)}} | Sort-Object MB -Descending\")",
       "Bash(xargs wc:*)",
-      "Bash(powershell -Command \"Copy-Item ''c:\\\\Users\\\\LucasMartinsRocha\\\\OneDrive - Apeiron Pte Ltd\\\\CRM\\\\Commercial Dashboard\\\\Pipeline Comercial Brasil.html'' ''c:\\\\Users\\\\LucasMartinsRocha\\\\OneDrive - Apeiron Pte Ltd\\\\CRM\\\\Commercial Dashboard\\\\Pipeline Comercial Brasil_backup_20260318.html''; Write-Host ''Backup feito''\")"
+      "Bash(powershell -Command \"Copy-Item ''c:\\\\Users\\\\LucasMartinsRocha\\\\OneDrive - Apeiron Pte Ltd\\\\CRM\\\\Opportunities\\\\Pipeline Opportunities Brasil.html'' ''c:\\\\Users\\\\LucasMartinsRocha\\\\OneDrive - Apeiron Pte Ltd\\\\CRM\\\\Opportunities\\\\Pipeline Opportunities Brasil_backup_20260318.html''; Write-Host ''Backup feito''\")",
+      "mcp__claude_ai_Apollo_io__apollo_people_bulk_match"
     ]
   }
 }
