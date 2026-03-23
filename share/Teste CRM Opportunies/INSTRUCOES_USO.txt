@@ -1,0 +1,18 @@
+﻿TESTE CRM OPPORTUNITIES - INSTRUCOES DE USO
+
+1) Extraia este ZIP em uma pasta local do seu computador.
+
+2) Abra o dashboard pelo arquivo:
+   ABRIR_DASHBOARD_TESTE.bat
+   (alternativa: tools\OPEN_DASHBOARD_DEV.bat)
+
+3) No dashboard, clique em "Update Data" e selecione:
+   Dashboard Opportunities Brasil_TESTE.xlsx
+
+4) Para validar escrita local no BD, clique em "Save DB".
+
+5) Se algo nao abrir, confira o arquivo launcher.log na pasta do teste e me envie.
+
+Observacoes:
+- Este pacote usa arquivo _TESTE para nao mexer no banco oficial.
+- Funciona melhor abrindo da pasta extraida local (nao de dentro do ZIP).

@@ -18,7 +18,18 @@
       "Bash(powershell -Command \"Get-Process python,uvicorn,ollama -ErrorAction SilentlyContinue | Select-Object Name,Id,@{N=''MB'';E={[int]\\($_WorkingSet64/1MB\\)}} | Sort-Object MB -Descending\")",
       "Bash(xargs wc:*)",
       "Bash(powershell -Command \"Copy-Item ''c:\\\\Users\\\\LucasMartinsRocha\\\\OneDrive - Apeiron Pte Ltd\\\\CRM\\\\Opportunities\\\\Pipeline Opportunities Brasil.html'' ''c:\\\\Users\\\\LucasMartinsRocha\\\\OneDrive - Apeiron Pte Ltd\\\\CRM\\\\Opportunities\\\\Pipeline Opportunities Brasil_backup_20260318.html''; Write-Host ''Backup feito''\")",
-      "mcp__claude_ai_Apollo_io__apollo_people_bulk_match"
+      "mcp__claude_ai_Apollo_io__apollo_people_bulk_match",
+      "Bash(python \"C:/Users/LucasMartinsRocha/OneDrive - Apeiron Pte Ltd/Prospecting/Support Files/New Contacts/_gen_leads.py\")",
+      "Bash(python Development/tools/enrich_briefings.py)",
+      "Bash(python Development/tools/refresh_dashboard_from_db.py)",
+      "Bash(python Development/tools/enrich_leads.py --dry-run)",
+      "Bash(python Development/tools/enrich_leads.py)",
+      "Read(//c/Users/LUCASM~1/AppData/Local/Temp/claude/c--Users-LucasMartinsRocha-OneDrive---Apeiron-Pte-Ltd-CRM-Opportunities/450c61a6-9e37-4ad2-8030-06e10b8a9ece/tasks/**)",
+      "Bash(python3 -c \":*)",
+      "Bash(python3 enrich_briefings.py)",
+      "Bash(python3 enrich_briefings.py --refresh)",
+      "Bash(python3 classify_leads.py --save)",
+      "Bash(python3 score_leads.py --save)"
     ]
   }
 }
